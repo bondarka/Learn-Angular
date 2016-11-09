@@ -1,0 +1,171 @@
+@bodyBgColor: #f4f4f4;
+@fontSize: 14px;
+@textColor: #000;
+@hoverColor: #21abc7;
+@bgBalance: #fff;
+@sumColor: red;
+@hoverForm: #2073d4;
+@mobile: ~"only screen and (max-width: 640px)";
+@tablet: ~"only screen and (max-width: 1024px)";
+html {
+    height: 100%;
+}
+
+body {
+    background-color: @bodyBgColor;
+    font-family: "Lato", sans-serif;
+    font-size: @fontSize;
+    color: @textColor;
+    margin: 0;
+}
+
+.container {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+h1 {
+    text-align: center;
+}
+
+input[type="text"] {
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid @hoverColor;
+    outline: none;
+    margin: 5px 0;
+    padding: 0 5px;
+    @media @mobile {
+        width: 100%;
+    }
+    &:focus {
+        border: 1px solid @hoverForm;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    }
+}
+
+.list {
+    &_item {
+        a {
+            color: @textColor;
+            font-size: @fontSize*1.5;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+                color: @hoverColor;
+            }
+        }
+    }
+}
+
+.control-form {
+    max-width: 200px;
+    div {
+        margin: 10px 0;
+    }
+}
+
+.balance {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    border: 1px solid @textColor;
+    border-radius: 5px;
+    padding: 0 10px;
+    background-color: @bgBalance;
+    margin: 10px 0;
+    @media @tablet {
+        flex-direction: column;
+    }
+    &_money {
+        flex: 1 0 auto;
+        ul {
+            padding: 0;
+            li {
+                list-style-type: none;
+                a {
+                    color: @textColor;
+                    font-size: @fontSize;
+                    text-decoration: none;
+                    padding: 5px;
+                    display: block;
+                }
+            }
+        }
+    }
+    &_sum {
+        font-weight: 800;
+        font-size: @fontSize;
+        color: @sumColor;
+    }
+    &_transaction {
+        flex: 3 0 auto;
+    }
+    &_tablelist {
+        width: 100%;
+        border-collapse: collapse;
+        tr {
+            th {
+                background-color: @hoverColor;
+                color: @bgBalance;
+                border-right: 1px solid @bgBalance;
+                padding: 10px
+            }
+            td {
+                border: 1px solid @hoverColor;
+                padding: 10px;
+            }
+        }
+    }
+    &_content {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-star;
+        align-content: center;
+        @media @mobile {
+            flex-direction: column;
+        }
+    }
+    &_formgroup {
+        margin: 0 10px 0 0;
+        &.amount,
+        &.date {
+            flex: 0 1 auto;
+        }
+        &.description {
+            flex: 1 1 435px;
+            input[type="text"] {
+                width: 100%;
+            }
+            @media @mobile {
+                flex: 0 1 auto;
+            }
+        }
+        &.place {
+            margin-right: 0;
+            margin-left: 10px;
+            @media @mobile {
+               margin-left: 0;
+               margin-right: 10px;
+            }
+        }
+    }
+}
+
+.btn {
+    min-width: 180px;
+    min-height: 30px;
+    border-radius: 5px;
+    background-color: @textColor;
+    border: 1px solid @textColor;
+    color: @bgBalance;
+    outline: none;
+    &:hover {
+        background: @hoverColor;
+        border: 1px solid @hoverColor;
+        transition: 1s;
+        cursor: pointer;
+    }
+}

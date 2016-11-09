@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Learn AngularJS</title>
+    <link href="css/style.css" rel="stylesheet" />
+    <link rel="icon" type="images/x-icon" href="images/favicon.ico">
+    <!-- First lessons-Binding. At this part learn how create class and add some text to the paragraf.Howe add some controller part -->
+</head>
+
+<body>
+    <div class="container">
+        <div ng-app="myApp">
+            <h1>Some model</h1>
+            <!-- Add model -->
+            <div class="control-form">
+                <div>Enter you name,please:
+                    <input type="text" ng-model="name"> </div>
+                <div>Enter you surname,please:
+                    <input type="text" ng-model="surname"> </div>
+            </div>
+            <!-- Add controller -->
+            <h2> Hello {{name}} {{surname}}</h2>
+            <div ng-controller="FirstCtrl">
+                <h2>{{data.message}}</h2>
+                <div class="{{data.message}}">
+                    {{data.message}} : some message text
+                </div>
+            </div>
+            <!-- Add controller with some transaction -->
+            <div class="balance" ng-controller="TransactionsCtrl as transactions_ctrl">
+                <div class="balance_money">
+                    <h2>Money</h2>
+                    <div class="balance_sum">{{transactions_ctrl.balance}}</div>
+                    <ul>
+                        <li><a href="#">Transaction</a></li>
+                        <li><a href="#">Setting</a></li>
+                    </ul>
+                </div>
+                <div class="balance_transaction">
+                    <h2>Transaction</h2>
+                    <table class="balance_tablelist">
+                        <thead>
+                            <tr>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Place</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="transaction in transactions_ctrl.transactions">
+                                <td>{{transaction.amount}}</td>
+                                <td>{{transaction.date}}</td>
+                                <td>{{transaction.description}}</td>
+                                <td>{{transaction.place}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <form class="balance_form">
+                        <h2>Add some spend</h2>
+                        <div class="balance_content">
+                            <div class="balance_formgroup amount">
+                                <div class="balance_inputgroup">
+                                    <input class="form-control" type="text" placeholder="Amount" ng-model="transactions_ctrl.newTransaction.amount">
+                                </div>
+                            </div>
+                            <div class="balance_formgroup date">
+                                <label class="sr-only"></label>
+                                <input type="text" class="form-control" placeholder="Date" ng-model="transactions_ctrl.newTransaction.date">
+                            </div>
+                            <div class="balance_formgroup description">
+                                <label class="sr-only"></label>
+                                <input type="text" class="form-control" placeholder="Description" ng-model="transactions_ctrl.newTransaction.description">
+                            </div>
+                            <div class="balance_formgroup place">
+                                <label class="sr-only"></label>
+                                <input type="text" class="form-control" placeholder="Place" ng-model="transactions_ctrl.newTransaction.place">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-add" ng-click="transactions_ctrl.addTransaction()">Add</button>
+                    </form>
+                    <div class="balance_total">
+                        <h3>Total:{{transactions_ctrl.total}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/vendor.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>
