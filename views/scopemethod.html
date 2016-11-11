@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Learn AngularJS</title>
+    <link href="css/style.css" rel="stylesheet" />
+    <link rel="icon" type="images/x-icon" href="images/favicon.ico">
+    <!-- Second  lessons. Learn reverse text from 2 method. Add some ngFilter- -->
+</head>
+
+<body class="starwars">
+    <div class="container">
+        <div ng-app="myApp">
+            <div class="stars-box">
+                <div id="stars"></div>
+                <div id="stars2"></div>
+            </div>
+            <h1>Method on the scope</h1>
+            <!-- Add model -->
+            <div ng-controller="ScopeCtrl">
+                <div>Enter you sentence,please
+                    <input type="text" ng-model="foo">
+                    <h3>{{reversedMessage(foo)}}</h3>
+                    <h3>{{foo|reverse}}</h3>
+                </div>
+            </div>
+            <!-- Add ngFilter -->
+            <h2>Star Wars</h2>
+            <div ng-controller="StarwarsCtrl">
+                <div>
+                    If you know actor but don't know what he was playing, enter his name here
+                    <input type="text" ng-model="search.name">
+                </div>
+                <div>
+                    If you know character but don't know who was playing it, enter his name here
+                    <input type="text" ng-model="search.character">
+                </div>
+                <table class="starwars_list">
+                    <tr ng-repeat="actors in Starwars | filter:search ">
+                        <td>{{actors.name}}</td>
+                        <td>{{actors.character}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="js/vendor.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <!--    <script type="text/javascript" src="js/mainSpec.js"></script> -->
+</body>
+
+</html>
