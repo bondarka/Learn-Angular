@@ -9,13 +9,13 @@
 </head>
 
 <body class="starwars">
+    <div class="stars-box">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+    </div>
     <div class="container">
         <div ng-app="myApp">
-            <div class="stars-box">
-                <div id="stars"></div>
-                <div id="stars2"></div>
-            </div>
-            <h1>Method on the scope</h1>
+            <h2>Method on the scope</h2>
             <!-- Add model -->
             <div ng-controller="ScopeCtrl">
                 <div>Enter you sentence,please
@@ -27,20 +27,28 @@
             <!-- Add ngFilter -->
             <h2>Star Wars</h2>
             <div ng-controller="StarwarsCtrl">
-                <div>
-                    If you know actor but don't know what he was playing, enter his name here
-                    <input type="text" ng-model="search.name">
+                <div class="search-block">
+                    <div>
+                        If you know actor but don't know what he was playing, enter his name here
+                        <input type="text" ng-model="search.name">
+                    </div>
+                    <div>
+                        If you know character but don't know who was playing it, enter his name here
+                        <input type="text" ng-model="search.character">
+                    </div>
                 </div>
-                <div>
-                    If you know character but don't know who was playing it, enter his name here
-                    <input type="text" ng-model="search.character">
-                </div>
-                <table class="starwars_list">
-                    <tr ng-repeat="actors in Starwars | filter:search ">
-                        <td>{{actors.name}}</td>
-                        <td>{{actors.character}}</td>
+                <div class="starwars_box">
+                    <table class="starwars_list">
+                    <tr>
+                        <th>NAME</th>
+                        <th>CHARACTER</th>
                     </tr>
-                </table>
+                        <tr ng-repeat="actors in Starwars |orderBy:'name'| filter:search ">
+                            <td>{{actors.name}}</td>
+                            <td>{{actors.character|uppercase}}</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

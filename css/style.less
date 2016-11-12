@@ -5,6 +5,7 @@
 @bgBalance: #fff;
 @sumColor: red;
 @hoverForm: #2073d4;
+@starsTextColor:#fff609;
 @starwarsBgColor: rgba(255, 255, 255, 0.7);
 @mobile: ~"only screen and (max-width: 640px)";
 @tablet: ~"only screen and (max-width: 1024px)";
@@ -19,7 +20,11 @@ body {
     color: @textColor;
     margin: 0;
 }
+canvas{
+    width: 100%;
+    height: auto;
 
+}
 .container {
     max-width: 1170px;
     margin: 0 auto;
@@ -38,6 +43,7 @@ input[type="text"] {
     outline: none;
     margin: 5px 0;
     padding: 0 5px;
+    z-index: 1000;
     @media @mobile {
         width: 100%;
     }
@@ -171,14 +177,19 @@ input[type="text"] {
         cursor: pointer;
     }
 }
-
+.starwars_box{
+    max-height: 500px;
+    overflow-y: scroll;
+}
 .starwars {
+    color:@bgBalance;
     background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
     h2 {
+        color: @starsTextColor;
         text-align: center;
     }
     .container {
-        background-color: @starwarsBgColor;
+       
         padding: 20px 10px;
     }
     &_list {
@@ -187,9 +198,16 @@ input[type="text"] {
         border-radius: 5px;
         border-spacing: 0;
         margin: 20px 0;
+        background-color: @starwarsBgColor;
+        z-index: 1000;
         tr {
             color: bodyBgColor;
+            th{
+                padding: 10px 5px;
+                text-align: left;
+            }
             td {
+                color:@textColor;
                 padding: 10px 5px;
                 font-weight: bold;
             }
@@ -200,8 +218,14 @@ input[type="text"] {
     }
 }
 
+.search-block{
+    display: flex;
+    flex-direction:row;
+    justify-content:center;
+    align-content:center;
+}
 
-/* Stars */
+// /* Stars */
 
 #stars {
     z-index: 1;
@@ -252,9 +276,9 @@ input[type="text"] {
 
 @keyframes animStar {
     from {
-        transform: translateX(0px);
+        transform: translateY(0px);
     }
     to {
-        transform: translateX(-500px);
+        transform: translateY(-500px);
     }
 }
