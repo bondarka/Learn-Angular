@@ -5,7 +5,7 @@
 @bgBalance: #fff;
 @sumColor: red;
 @hoverForm: #2073d4;
-@starsTextColor:#fff609;
+@starsTextColor: #fff609;
 @starwarsBgColor: rgba(255, 255, 255, 0.7);
 @mobile: ~"only screen and (max-width: 640px)";
 @tablet: ~"only screen and (max-width: 1024px)";
@@ -20,11 +20,12 @@ body {
     color: @textColor;
     margin: 0;
 }
-canvas{
+
+canvas {
     width: 100%;
     height: auto;
-
 }
+
 .container {
     max-width: 1170px;
     margin: 0 auto;
@@ -177,19 +178,20 @@ input[type="text"] {
         cursor: pointer;
     }
 }
-.starwars_box{
+
+.starwars_box {
     max-height: 500px;
     overflow-y: scroll;
 }
+
 .starwars {
-    color:@bgBalance;
+    color: @bgBalance;
     background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
     h2 {
         color: @starsTextColor;
         text-align: center;
     }
     .container {
-       
         padding: 20px 10px;
     }
     &_list {
@@ -202,12 +204,12 @@ input[type="text"] {
         z-index: 1000;
         tr {
             color: bodyBgColor;
-            th{
+            th {
                 padding: 10px 5px;
                 text-align: left;
             }
             td {
-                color:@textColor;
+                color: @textColor;
                 padding: 10px 5px;
                 font-weight: bold;
             }
@@ -218,15 +220,14 @@ input[type="text"] {
     }
 }
 
-.search-block{
+.search-block {
     display: flex;
-    flex-direction:row;
-    justify-content:center;
-    align-content:center;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
 }
 
 // /* Stars */
-
 #stars {
     z-index: 1;
     width: 4px;
@@ -280,5 +281,33 @@ input[type="text"] {
     }
     to {
         transform: translateY(-500px);
+    }
+}
+
+// directive
+.mouse{
+    border:1px solid @hoverColor;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+    span{
+        text-align: center;
+        font-size: @fontSize*1.5;
+        display: block;
+    }
+}
+.container.box {
+    background: @bodyBgColor;
+    margin-bottom: 50px;
+}
+
+.avatars {
+    margin:100px 0;
+    color:@hoverColor;
+    font-weight: 600;
+    font-size: @fontSize*2;
+    img {
+        max-width: 100%;
+        margin: 100px 0 50px 0;
     }
 }

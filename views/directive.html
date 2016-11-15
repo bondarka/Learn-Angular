@@ -5,15 +5,34 @@
     <title>Learn AngularJS</title>
     <link href="css/style.css" rel="stylesheet" />
     <link rel="icon" type="images/x-icon" href="images/favicon.ico">
-    <!--Lessons three.  -->
+    <!--Lessons three.At this lessons I learn about restrict-->
 </head>
 
 <body>
-    <div class="container">
-        <div ng-app="myApp">
-        <div angulardir></div>
-        <div welcome goodbye></div>
-            
+    <div class="container box">
+        <div ng-app="myApp" ng-controller="MainCtrl">
+            <div angulardir></div>
+            <div welcome goodbye></div>
+            <div class="mouse">
+                <span>If you enter the text you can see message in console</span>
+                <div enter leave>I'm some content (enter me)</div>
+            </div>
+            <div class="avatars">
+                <h1>Travelling foto</h1>
+                <avatar name="We start our traveling" picture="images/travel.jpg"></avatar>
+                <avatar name="Oysters.Very tasty and useful =)" picture="images/travel2.jpg"></avatar>
+                <avatar name="Old lock. Beautiful place" picture="images/travel3.jpg"></avatar>
+                <avatar name="Hobitt house" picture="images/travel4.jpg"></avatar>
+                <avatar name="Cheers beaver" picture="images/travel5.jpg"></avatar>
+                <avatar name="Walking around the city. Old ship that participated in the naval battles,  now it's a cafe" picture="images/travel6.jpg"></avatar>
+                <avatar name="Sunset" picture="images/travel7.jpg"></avatar>
+                <avatar name="Beautiful swan living in a conservation area" picture="images/travel8.jpg"></avatar>
+            </div>
+            <div ng-hide="repositories.length>0">Loading...</div>
+            <h2>My repositories</h2>
+            <div ng-repeat="repo in repositories">
+                <repository title="repo.name" url="repo.url"></repository>
+            </div>
         </div>
     </div>
     <script src="js/vendor.js"></script>
