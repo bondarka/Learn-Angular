@@ -90,7 +90,7 @@ myApp.directive("repository", function() {
             $scope.titleLength = $scope.title.length;
             $scope.showURL = false;
         },
-        templateUrl: '_repository.html'
+        templateUrl: './_repository.html'
     }
 });
 
@@ -102,6 +102,6 @@ myApp.directive("avatar", function() {
             picture: '@'
         },
         // controller: function($scope) {},
-        templateUrl: '_pictures.html'
+        templateUrl: './_pictures.html'
     }
 });
